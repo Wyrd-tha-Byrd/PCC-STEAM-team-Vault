@@ -1,0 +1,262 @@
+# PrusaSlicer Glossary of terms
+### Bed Adhesion
+- skirt
+- brim
+- raft
+### Supports
+- Organic/Tree
+- Snug
+- Grid/Rectangular
+### Interface Patterns 
+- honeycomb
+- Rectilinear
+- concentric
+### Infill
+- Rectilinear
+- Aligned Rectilinear
+- Grid
+- Triangles
+- Stars
+- Cubic
+- Line
+- Concentric
+- Honeycomb
+- 3D Honeycomb
+- Gyroid
+- Hilbert Curve
+- Archimedean Chords 
+- Octagram Spiral
+- Adaptive Cubic
+- Support Cubic
+- Lightning
+### Horizontal Face Fill
+- Rectilinear
+- Monotonic
+- Monotonic Lines
+- Aligned Rectilinear
+- Concentric
+- Archimedean Chords
+- Octagram Spiral
+### Misc. Terms
+- Z hop
+- Seam
+- Fuzzy Skin
+- Perimeter
+- "Vase" Mode
+- Shell
+### File Types Accepted
+- STL
+- OBJ
+- STEP
+- 3MF
+- AMF
+# Machine Anatomy
+- Axes
+	- X
+		- Horizontal
+	- Y
+		- Horizontal
+	- Z
+		- Vertical
+	- E
+		- Extruder
+- Linear Rods
+	- Round Rods that are used as a sliding/rolling axis.
+	- Machined within a tight spec, straightened and hardened
+- Screw Rods
+	- Rods that are used for a motor driven axis as a translation of power
+	- Machined within reasonable tolerance, straightened, hardened and tempered 
+- Linear Rails
+	- Rectangular Flat Bars that usually have a pre-mounted bearing slide
+	- Machined with incredibly low tolerances, hardened and tempered
+- Belt Drive
+	- Drive mechanisms using a soft rubber, cloth, leather, or other non-elastic belting material
+- Gantry
+	- The name of the carriage that carries and allows constrained movement for the Extruder through the build volume
+- Hot Bed
+	- Not necessarily 
+- Environment Sensors
+	- Hygrometer
+		- Environmental Humidity
+	- Thermometer
+		- Environmental Temperature
+- #### Extruder Assembly
+	- Bowden Tube vs Direct Drive
+		- Bowden Tube
+			- Polytetrafluoroethylene (PTFE for short, also known by a brand name; Teflon)
+				- Low friction
+				- allows extruder to be separate from extruder head
+				- can be used to create an airtight path from dry box to printer
+		- Direct Drive
+			- Friction Drive
+				- two smooth pulley-like gears work together to push filament out of the nozzle
+			- Single Gear
+				- A single gear and a friction gear work together to get slightly more grip on hard plastics
+			- Dual Gear
+				- Two gears turn in unison creating a pinch point that forces the filament through the nozzle
+				- can increase "pressure advance" and help with stubborn filaments
+				- can lead to filament shredding if the nozzle becomes clogged for some reason
+			- Belt Drive
+				- Mostly used for low Shore A Thermoplastic Polyurethane and other flexible/soft plastics
+				- uses small belts to propel the filament forward while controlling for undesirable vectors of force
+				- works as a hybrid of friction and single gear driven extruders
+	- #### Idler Assembly
+		- Idler Gear
+			- Idler Tensioner
+			- Single vs Dual Gear vs Belt Drive
+	- #### Filament Runout Sensor
+	- #### Bed Level Sensors
+		- Electromagnetic Probe
+		- Impedance
+		- Microswitch Probe
+	- #### Hot End Assembly
+		- Nozzle
+			- Generally Brass and 0.4mm however specialty nozzles can be used to great effect if you know what to use them for
+			- comes in sizes ranging from 0.10mm - 1.5mm
+		- Heat Break
+			- Small tube that connects the heater block to the heat sink
+			- prevents heat creep (unmanageable amount of material melting)
+		- Heat Sink
+			- Hot End Cooling Fan
+		- Heater Block
+			- Temperature Sensor
+				- Thermistor
+				- Thermocouple
+			- Temperature Effector
+				- Heater Core
+	- Limit Switch (Microswitch with frame mount)
+- #### Build Plates
+	- Surfaces
+		- Bare Base
+			- Smoothest option
+		- Diffraction Grating
+			- Leaves a Holographic surface on the printed object first layer
+		- Textured PEI (Sticker)
+			- Leaves a textured surface
+			- has best adhesion for most printable materials
+		- Smooth PEI (Powder Coated)
+			- consistently rough surface for better adhesion than glass
+		- Garolite
+			- Expensive
+			- high quality smooth surface
+			- best for nylon and other engineering filaments
+		- Adhesive Mask
+			- Cheap but inconsistent texture
+			- has to be refreshed before each print (good rule of thumb, not required)
+			- can be multiple different things but the most common are
+				- Blue Painter's Tape (can get expensive but is reusable if you're extra careful, adhesive comes off with alcohol and scrubbing)
+				- Purple Elmer's Glue stick (good for about 2-3 prints, water soluble, cheapest)
+				- Bed Weld (each application is good for about 25 prints, thermosensitive adhesive, releases when cold, also water soluble)
+	- Base
+		- Glass
+			- Perfectly smooth
+			- unbendable
+			- susceptible to cold shock
+			- CAN use a metal scraper
+		- Spring Steel Sheet
+			- Bendable
+			- Can be smooth or textured
+			- Excellent thermal transmission
+			- Nearly indestructible
+			- Magnetic
+			- DO NOT SCRAPE WITH METAL TOOLS
+- Frame
+	- Types
+		- Cartesian
+			- Most Common Nowadays
+			- Uses Cartesian Coordinates (cubic grid with no rotation)
+			- Square Build area
+			- Consistent Accuracy but potential for mesh triangulation artifacts
+		- Polar
+			- Used for Radial Manufacturing Prototyping
+			- Uses Quaternion Coordinates (Cubic grid with rotation relative to the origin or reference frame)
+			- Circular Build area
+			- More Accurate towards Center
+		- Delta
+			- Hybrid of Polar and Cartesian, instead of using quaternions, it uses Cartesian Coordinates on without the mesh artifacts found on Cartesian Printers
+			- Circular Build Area
+			- Generally the tallest in relation to their base plate, thus making them a great use of workshop real estate
+		- Robotic Arm
+			- Only as accurate as the play in the mechatronics
+			- Minimum Resolution may be affected however build volume is all reachable space
+			- Uses Absolute Quaternion Space 
+			- Toroidal Build Volume
+		- Hybrid
+			- More and more printers are being made every day and the types are as endless as human creativity. You can help by adding to this list.
+	- Materials
+		- T-slot Extrusion (Aluminum)
+			- Modular
+		- Purpose built
+			- Self Printed
+				- RepRap/Voron styles
+					- Still using rails/rods but doesn't use OEM Connectors
+			- CNC Milled
+				- Aluminum
+					- Lightweight
+				- Steel
+					- Steady
+				- Polycarbonate Plates
+					- Chemical resistant
+					- Lightweight
+		- Linear Rails & Rods
+			- Expensive and creates several points for failure.
+			- smoothest and fastest gantry mount
+- Mainboard/Motherboard
+	- Determines the versions and options available for firmware settings
+	- Job Manager (Optional Server)
+		- This is a second computer collecting and sending information, essentially taking the compute load off of the 3d printer's mainboard
+- Power Supply Unit
+	- This is the only reason anything turns on
+- Display
+	- Selector Encoder
+		- The knob on the front of the machine that allows you to navigate printer settings
+	- Action Cancel Button
+		- Cancels ANY current operation, use with caution
+	- Screen
+		- Displays all the information that the printer holds by itself, if you want more details, you can set up a klipper (+ MoonsailOS) instance
+
+
+# Sizes of Filament
+- 1.75mm 
+	- standard for consumer printing
+- 2.85mm
+	- found on older or industrial prototyping machines
+
+# Types of Plastics
+##### Unenclosed Printing
+- Polylactic Acid (PLA)
+	- cheap
+	- easy to print with
+- Polyethylene Terephthalate Glycol (PETG)
+	- great for compliant mechanisms
+	- reasonable clarity
+- Polyethylene Terephthalate (PET)
+	- found in soda bottles
+##### Enclosed Printing
+- Acrylonitrile Butadiene Styrene (ABS)
+	- most plastic car parts are made of this
+	- vapor smoothing post process
+- Acrylonitrile Butadiene Acrylate (ABA)
+	- new material made to replace ABS
+	- vapor smoothing post process
+- Polycarbonate (PC)
+	- Wonderful chemical resistance
+	- Stunning Clarity
+	- Found in most plastic lenses, especially in automotive
+	- hard to print
+##### Heated Enclosure Printing
+- Polyphenylsulfone PPSU
+	- High chemical, temperature, and impact resistance
+	- extremely difficult to print
+	- extremely expensive
+	- used for aeronautical nose cones and one-off parts for automotive research
+- Polyether Ether Ketone (PEEK)
+	- very expensive
+	- Bioengineering grade material
+	- hard to print but extremely durable
+- Nylon (Full Family of Materials, N6, N12, N46, etc...)
+	- Extremely durable
+	- moderately expensive
+	- has moderate compliance
+	- reasonably high chemical and impact resistance
+	- can be used for heavy use or high impact objects with repeated stress
