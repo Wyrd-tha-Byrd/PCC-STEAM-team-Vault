@@ -83,7 +83,7 @@
 - #### Extruder Assembly
 	- Bowden Tube vs Direct Drive
 		- Bowden Tube
-			- Polytetrafluoroethylene (PTFE for short, also known by a brand name; Teflon)
+			- Polytetrafluoroethylene (PTFE for short, also known by brand names; Capricorn, Bowden and Teflon Tubing)
 				- Low friction
 				- allows extruder to be separate from extruder head
 				- can be used to create an airtight path from dry box to printer
