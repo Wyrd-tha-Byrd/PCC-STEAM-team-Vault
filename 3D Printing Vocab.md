@@ -1,55 +1,99 @@
 # PrusaSlicer Glossary of terms
 ### Bed Adhesion
 - skirt
+	- The line extruded around the outside of an object at the beginning of most prints. The primary function of this line is to let you know if your bed is level before starting the time-consuming part of the print.
 - brim
+	- This is a series of lines laid down around the object, the difference between a brim and skirt is that the brim touches the object for additional bed adhesion.
 - raft
+	- Outdated technique for maintaining a heat "battery" slowing down the cooling and thusly reducing potential for warpage. Now we use a Heated Bed and brims to tune bed adhesion, 
 ### Supports
 - Organic/Tree
+	- A coral-like structure generated based on the overhang angle and support interface settings. For more rigid supports you can increase the amount of walls or infill in the support structures. 
 - Snug
+	- A cleaner form of grid/rectangular, better for small details, however these are the hardest to remove supports, increasing the likelihood of damage during post-processing.
 - Grid/Rectangular
+	- Loose, fast, grid generated to catch just enough filament to start an overhang with a lower chance of failure.
 ### Interface Patterns 
 - honeycomb
+	- Support interface material that covers the top of the supports with a hexagonal repeating pattern like a bee's honeycomb.
 - Rectilinear
+	- Lines that are all parallel, making for an easily identifiable surface for removal during post-processing. 
 - concentric
+	- Lines that follow the curves of the object, repeating at the set width of the extrusion.
 ### Infill
 - Rectilinear
+	- The object's open volume is filled with straight lines at the set % density of infill.
 - Aligned Rectilinear
+	- The same as above, but aligned with the gantry, allowing for a minor speed increase over the prior method.
 - Grid
+	- A Cartesian Grid fills the object oriented along the vertical axis.
 - Triangles
+	- A Triangular grid fills the open volume.
 - Stars
+	- Grid and Triangles combined to create 6 pointed star fill.
 - Cubic
+	- Like grid except in 3 dimensions.
 - Line
+	- Like rectilinear, however it prints the lines at acute angles to each other, allowing for a little more dimensional strength.
 - Concentric
+	- Concentric shells of the object fill the object
 - Honeycomb
+	- A hexagonal grid aligned with the vertical axis
 - 3D Honeycomb
+	- A 3D Grid of hexagonal prisms fills the object.
 - Gyroid
+	- Alternating sinusoidal waves generate a strong, wavy array of structural support from all angles.
 - Hilbert Curve
+	- The longest continuous space-filling-line is used to create an optimal vertical strength while allowing some side flection.
 - Archimedean Chords 
+	- A spiral that allows for the most flection in flexible media, also ideal for filling with liquids.
 - Octagram Spiral
+	- A spiky spiral that allows for a similar but more stiff structure than Archimedean Chords. 
 - Adaptive Cubic
+	- Adjusts Fill density by increasing density as the proximity to the wall approaches 0.
 - Support Cubic
+	- Same algorithm as above however the proximity to side is replaced with the proximity to the upper limit of the Z axis.
 - Lightning
+	- Infill is generated to fill only areas with internal overhangs and ceilings as Z axis approaches its upper limit.
 ### Horizontal Face Fill
 - Rectilinear
+	-  Outdated technique, results in lackluster, disorganized lines on the layer.
 - Monotonic
+	- Optimized replacement for Rectilinear, creates a smooth skin, combed back and forth in a single direction.
 - Monotonic Lines
+	- Improved version of Monotonic for improved alignment and one direction smoothing.
 - Aligned Rectilinear
+	- Speed Optimized version of rectilinear (straight line) fill
 - Concentric
+	- Copies of the perimeters fill the top (bottom)
 - Archimedean Chords
+	- A smooth spiral fill, can help speed up certain types of print jobs.
 - Octagram Spiral
+	- A sharp wave spiraling towards the center, can produce interesting visual effects with certain filaments.
 ### Misc. Terms
 - Z hop
+	- How much your extruder/nozzle moves up between layers, allowing for layer expansion compensation
 - Seam
+	- The place in a layer where the nozzle exits an exterior line.
 - Fuzzy Skin
+	- purposefully making a shaky perimeter to create the effect of a "fuzzy" surface, often used to create a high grip texture or simulate the fur of an animal. 
 - Perimeter
+	- The lines that define every edge of a layer.
 - "Vase" Mode
+	- Using one perimeter that spirals all the way to the top to print delicate items with no need for structural integrity.
 - Shell
+	- The form made of exclusively perimeters, not including infill or support material.
 ### File Types Accepted
 - STL
+	- Standard Tessellation File
 - OBJ
+	- Object File
 - STEP
+	- Standard Manufacturing File
 - 3MF
+	- 3D Manufacturing File
 - AMF
+	- Additive Manufacturing file
 # Machine Anatomy
 - Axes
 	- X
@@ -91,7 +135,7 @@
 			- Friction Drive
 				- two smooth pulley-like gears work together to push filament out of the nozzle
 			- Single Gear
-				- A single gear and a friction gear work together to get slightly more grip on hard plastics
+				- A single gear and a friction gear work together to get slightly more grip on soft plastics
 			- Dual Gear
 				- Two gears turn in unison creating a pinch point that forces the filament through the nozzle
 				- can increase "pressure advance" and help with stubborn filaments
@@ -102,16 +146,28 @@
 				- works as a hybrid of friction and single gear driven extruders
 	- #### Idler Assembly
 		- Idler Gear
-			- Idler Tensioner
-			- Single vs Dual Gear vs Belt Drive
+			- Holds the filament in tension or compression for the extruder, this adjusts feed rate by changing the rate at which this gear turns. 
+		- Idler Tensioner
+			- This is a spring and screw that holds the idler gear(s) open just enough to grab the filament. This adjusts the filament grip pressure.
+		- Single Gear
+			- A single idler gear that runs next to a smooth pulley, pushing the filament through the nozzle with less grip for hard filaments, but can be an advantage in printing soft/flexible materials. 
+		- Dual Gear
+			- Two idler gears that can push and pull filament with ease, the main disadvantage of this method is if there is a clog at any point, it can shred the filament and cause a jam.
+		- Belt Drive
+			- The hybrid of both geared and pulley systems, using two drive gears to synchronize two belts that press the filament into a channel along the center of the pulleys that adjust the clamping pressure of the filament between the gears or pulleys. 
 	- #### Filament Runout Sensor
+		- a limit switch being used as a binary sensor.
+			- Asking/answering the question "Do I have filament?" at least once every clock cycle in the computer.
 	- #### Bed Level Sensors
 		- Electromagnetic Probe
+			- Commonly known by the brand name product, "BLTouch," sometimes also called "CLTouch" however other brands produce similar products, these two are the most popular. The probe operates using an electromagnetic hall effect sensor, in a threshold binary mode. When the magnet activates the gate threshold, the pin retracts telling you the approximate distance from the bed.
 		- Impedance
-		- Microswitch Probe
+			- Using an analog signal, the impedance of a copper coil moving near a magnetic flux field to provide a measurement of distance, can take very precise samples if the field is even or flux source falloff is properly accounted for. 
+		- Micro limit-switch Probe
+			- Generally a DIY solution, a well known open source project called "Klicky" is used by a majority of people in the custom printer communities because of its mechanical reliability and ease of use.   
 	- #### Hot End Assembly
 		- Nozzle
-			- Generally Brass and 0.4mm however specialty nozzles can be used to great effect if you know what to use them for
+			- Generally Brass and 0.4mm however specialty nozzles can be used to great effect if you know what to use them for.
 			- comes in sizes ranging from 0.10mm - 1.5mm
 		- Heat Break
 			- Small tube that connects the heater block to the heat sink
@@ -121,10 +177,17 @@
 		- Heater Block
 			- Temperature Sensor
 				- Thermistor
+					- Thin wire with a small blob of thermally conductive resin covering a ball of electrical conductor whose resistance changes with the temperature.
 				- Thermocouple
+					- Similar construction, however the resin is replaced with a ceramic substrate inside a metal tube that increases the effective sensory range.  Almost always requires a small signal translation board for your printer to understand the analog signal in the binary language we have to use.
 			- Temperature Effector
-				- Heater Core
+				- Heater Core /Cartridge
+					- Looks like a thermocouple (Small metal rod with wires and ceramic material.) However, the heater core or cartridge often has thick, well insulated leads. This is hooked up to either 12 or 24 volts and powered with a sine wave signal compensating for the loss of heat from surface exposure/time and plastic moving through, transferring heat out of the nozzle.
+					- The feedback loop used to tune this is called "PID"
+						-  PID stands for - Proportional, Integral, and Derivative
+							- This set of values adjusts the period, amplitude and instantaneous rates of change in the temperature controller.
 	- Limit Switch (Microswitch with frame mount)
+		- The bed level sensor almost always mounts to the extruder/hot-end frame, see section "Bed Level Sensors" for more information.
 - #### Build Plates
 	- Surfaces
 		- Bare Base
@@ -224,10 +287,10 @@
 
 # Types of Plastics
 ##### Unenclosed Printing
-- Polylactic Acid (PLA)
+- PolyLactic Acid (PLA)
 	- cheap
 	- easy to print with
-- Polyethylene Terephthalate Glycol (PETG)
+- PolyEthylene Terephthalate Glycol (PETG)
 	- great for compliant mechanisms
 	- reasonable clarity
 - Polyethylene Terephthalate (PET)
@@ -245,12 +308,12 @@
 	- Found in most plastic lenses, especially in automotive
 	- hard to print
 ##### Heated Enclosure Printing
-- Polyphenylsulfone PPSU
+- PolyPhenylSUlfone PPSU
 	- High chemical, temperature, and impact resistance
 	- extremely difficult to print
 	- extremely expensive
 	- used for aeronautical nose cones and one-off parts for automotive research
-- Polyether Ether Ketone (PEEK)
+- PolyEther Ether Ketone (PEEK)
 	- very expensive
 	- Bioengineering grade material
 	- hard to print but extremely durable
