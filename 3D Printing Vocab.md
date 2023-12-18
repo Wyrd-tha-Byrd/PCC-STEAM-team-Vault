@@ -5,7 +5,7 @@
 - brim
 	- This is a series of lines laid down around the object, the difference between a brim and skirt is that the brim touches the object for additional bed adhesion.
 - raft
-	- Outdated technique for maintaining a heat "battery" slowing down the cooling and thusly reducing potential for warpage. Now we use a Heated Bed and brims to tune bed adhesion, 
+	- Outdated technique for maintaining a heat "battery" slowing down the cooling and thusly reducing potential for warpage. Now we use a Heated Bed and brims to tune bed adhesion.
 ### Supports
 - Organic/Tree
 	- A coral-like structure generated based on the overhang angle and support interface settings. For more rigid supports you can increase the amount of walls or infill in the support structures. 
@@ -116,9 +116,9 @@
 - Belt Drive
 	- Drive mechanisms using a soft rubber, cloth, leather, or other non-elastic belting material
 - Gantry
-	- The name of the carriage that carries and allows constrained movement for the Extruder through the build volume
+	- The name of the carriage that carries and allows constrained movement for the Extruder through the build volume.
 - Hot Bed
-	- Not necessarily 
+	- Not necessarily standard but highly recommended.
 - Environment Sensors
 	- Hygrometer
 		- Environmental Humidity
